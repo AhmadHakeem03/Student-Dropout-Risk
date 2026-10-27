@@ -1,0 +1,39 @@
+random_state: 42
+
+data:
+  raw_path: data/The effect of using AI.xlsx
+  sheet: Sheet1
+  processed_dir: data/processed
+
+split:
+  test_size: 0.25          # held-out respondents, used once for final evaluation
+
+smote:
+  # SMOTEN = SMOTE for nominal/categorical data (every survey answer is a category code).
+  k_neighbors: 5
+  samples_per_class: 400   # each class is oversampled up to this many rows (real + synthetic)
+
+features:
+  quasi_constant_threshold: 0.97   # drop features whose most common value covers >= 97% of rows
+  correlation_threshold: 0.90      # of a pair with |Spearman rho| >= this, keep the higher-ranked one
+  top_k: 15                        # number of features kept after MI + Random-Forest ranking
+
+training:
+  cv_splits: 5
+  cv_repeats: 3
+  n_iter: 20                 # random-search candidates per model
+  primary_metric: f1         # model selection metric (CV mean); ties broken by roc_auc, then simplicity
+  n_jobs: -1
+  bootstrap_samples: 2000    # for test-set confidence intervals
+
+output_dir: outputs
+
+dashboard:
+  default_source: augmented   # augmented (real train + SMOTEN) | synthetic | original (183 respondents)
+  min_group_size: 10          # answers given by fewer respondents are left out of risk-signal rankings
+  risk_bands:                 # predicted drop probability thresholds
+    medium: 0.30
+    high: 0.60
+  watchlist_size: 25
+  host: 127.0.0.1
+  port: 8000

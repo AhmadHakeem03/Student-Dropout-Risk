@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Student Dropout Risk</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/vendor/plotly-2.35.3.min.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#/check">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Student Dropout Risk</span>
+      </a>
+      <nav class="tabs" aria-label="Main">
+        <a href="#/check" data-view="check">Risk check</a>
+        <a href="#/dashboards" data-view="dashboards">Dashboards</a>
+      </nav>
+      <a class="docs-link" href="/docs" target="_blank" rel="noopener">API docs</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Risk check -------------------------------------------------------------------------->
+    <section id="view-check" class="view" hidden>
+      <div class="page-head">
+        <div>
+          <h1>Risk check</h1>
+          <p>Answer the survey questions for one student to get a dropout-risk assessment and the factors behind it.</p>
+        </div>
+        <div class="actions">
+          <button class="btn ghost" type="button" data-example="risk">Example: at-risk student</button>
+          <button class="btn ghost" type="button" data-example="safe">Example: low-risk student</button>
+          <button class="btn ghost" type="button" id="clear-form">Clear</button>
+        </div>
+      </div>
+      <div class="check-layout">
+        <form id="student-form" novalidate>
+          <div class="progress" aria-live="polite">
+            <div class="progress-text"><span id="answered">0</span> of <span id="required">0</span> required questions answered</div>
+            <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+          </div>
+          <div id="form-groups"></div>
+          <div class="form-foot">
+            <p class="form-error" id="form-error" role="alert" hidden></p>
+            <button class="btn primary" type="submit" id="submit">Assess dropout risk</button>
+          </div>
+        </form>
+        <aside class="result card" id="result" aria-live="polite">
+          <div class="empty-state">
+            <div class="empty-icon" aria-hidden="true"></div>
+            <h2>No assessment yet</h2>
+            <p>Fill in the questions, or load an example, then select <b>Assess dropout risk</b>.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Dashboards --------------------------------------------------------------------------->
+    <section id="view-dashboards" class="view" hidden>
+      <div class="page-head">
+        <div>
+          <h1>Dashboards</h1>
+          <p>Where dropout risk concentrates, which answers signal it, and how student groups compare.</p>
+        </div>
+      </div>
+      <div class="card filters" id="filters"></div>
+      <div class="dash-tabs" id="dash-tabs" role="tablist" aria-label="Dashboards"></div>
+      <div id="dashboard"></div>
+    </section>
+  </main>
+
+  <script id="form-schema" type="application/json">__FORM_SCHEMA__</script>
+  <script type="module" src="/static/app.js"></script>
+</body>
+</html>

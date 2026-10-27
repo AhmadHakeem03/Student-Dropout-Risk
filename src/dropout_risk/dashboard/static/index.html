@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="api-base" content="__API_BASE__">
+  <title>Dropout Risk Dashboards</title>
+  <link rel="stylesheet" href="__STATIC_BASE__/css/dashboard.css">
+  <script src="__STATIC_BASE__/vendor/plotly-2.35.3.min.js"></script>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <div><strong>Dropout Risk</strong><span>Decision dashboards</span></div>
+      </div>
+      <nav id="nav" aria-label="Dashboards"></nav>
+      <div class="sidebar-foot">
+        <label for="theme">Theme</label>
+        <select id="theme">
+          <option value="system">System</option>
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+        </select>
+      </div>
+    </aside>
+    <div class="main">
+      <header class="topbar">
+        <div class="titles">
+          <h1 id="page-title">Loading…</h1>
+          <p id="page-subtitle"></p>
+        </div>
+        <div class="toolbar" id="toolbar"></div>
+      </header>
+      <div id="filter-note" class="filter-note" hidden></div>
+      <main id="page" aria-live="polite"></main>
+    </div>
+  </div>
+  <script type="module" src="__STATIC_BASE__/js/app.js"></script>
+</body>
+</html>

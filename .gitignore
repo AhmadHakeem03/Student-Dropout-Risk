@@ -1,0 +1,20 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Secrets / local settings
+.env
+
+# Generated data and artifacts
+data/processed/
+outputs/**/*.joblib
+outputs/run_log.txt
+.ipynb_checkpoints/
+.pytest_cache/
